@@ -37,6 +37,9 @@ import com.google.api.services.gmail.model.Message;
 
 public class Main {
   
+  private static String subjectmain;
+
+  private static String contentmain;
 
   private static final String credentials = "program/src/main/resources/client_secret_143.json";
   Gmail service;
@@ -86,9 +89,41 @@ public Main () throws Exception {
     public Message sendEmail(String subject, String message) throws GeneralSecurityException, IOException, AddressException, MessagingException{
 
 
+      String welcome = "Welcome to AUTOGMAILER\n";
+      // String welcome = "Welcome Message";
+
+
+      System.out.println(""+welcome+"What's your name?");
+
+
+      Scanner scanner = new Scanner(System.in);
+
+      String username = scanner.nextLine();
+
+      
+      Scanner scanner2 = new Scanner(System.in);
+
+      
+      String answer = "Hi "+username+ " What's the subject of the email?";
+     
+      System.out.println(answer);
+
+      subjectmain = scanner2.nextLine();
+
+      
+
+      System.out.println("What would you like to send?");
+
+      Scanner scanner3 = new Scanner(System.in);
+
+      contentmain = scanner3.nextLine();
+    
+
+    
+
       String email_p = "jesseokuji123@gmail.com";
       String content = "Trial of GMAIL API";
-      String reciever = "oenekpen@yahoo.co.uk";
+      String reciever = "jesseokuji123@gmail.com";
 
 
       // Create the email content
@@ -102,8 +137,8 @@ public Main () throws Exception {
     email.setFrom(new InternetAddress(email_p));
     email.addRecipient(javax.mail.Message.RecipientType.TO,
         new InternetAddress(reciever));
-    email.setSubject(subject);
-    email.setText(message);
+    email.setSubject(subjectmain);
+    email.setText(contentmain);
 
     // Encode and wrap the MIME message into a gmail message
     ByteArrayOutputStream buffer = new ByteArrayOutputStream();
@@ -134,6 +169,6 @@ public Main () throws Exception {
     }
 
     public static void main(String[] args) throws Exception {
-        new Main().sendEmail("TRYING OUT GMAIL API", "TESTING");
+        new Main().sendEmail(subjectmain, contentmain);
     };
 }
