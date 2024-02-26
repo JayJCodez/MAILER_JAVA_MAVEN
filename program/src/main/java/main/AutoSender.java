@@ -26,7 +26,7 @@ public class AutoSender {
         String username = scanner.nextLine();
 
 
-        
+
 
 
 
@@ -64,7 +64,7 @@ public class AutoSender {
         String content = scanner3.nextLine();
 
 
-        new Main().sendEmail(subject, content, senderEmail, recieverMail);
+        new gmail_setup().sendEmail(subject, content, senderEmail, recieverMail);
 
 
     }

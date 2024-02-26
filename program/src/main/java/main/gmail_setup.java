@@ -35,7 +35,7 @@ import com.google.api.services.gmail.GmailScopes;
 import com.google.api.services.gmail.model.Draft;
 import com.google.api.services.gmail.model.Message;
 
-public class Main {
+public class gmail_setup {
   
   private static String subjectmain;
 
@@ -46,7 +46,7 @@ public class Main {
   private static final JsonFactory JSON_FACTORY = GsonFactory.getDefaultInstance();
 
   
-public Main () throws Exception {
+public gmail_setup () throws Exception {
 
 
   final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
