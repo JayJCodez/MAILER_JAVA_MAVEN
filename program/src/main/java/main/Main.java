@@ -86,44 +86,44 @@ public Main () throws Exception {
 
 
 
-    public Message sendEmail(String subject, String message) throws GeneralSecurityException, IOException, AddressException, MessagingException{
+    public Message sendEmail(String subject, String message, String sender, String reciever) throws GeneralSecurityException, IOException, AddressException, MessagingException{
 
 
-      String welcome = "Welcome to AUTOGMAILER\n";
-      // String welcome = "Welcome Message";
+      // String welcome = "Welcome to AUTOGMAILER\n";
+      // // String welcome = "Welcome Message";
 
 
-      System.out.println(""+welcome+"What's your name?");
+      // System.out.println(""+welcome+"What's your name?");
 
 
-      Scanner scanner = new Scanner(System.in);
+      // Scanner scanner = new Scanner(System.in);
 
-      String username = scanner.nextLine();
-
-      
-      Scanner scanner2 = new Scanner(System.in);
+      // String username = scanner.nextLine();
 
       
-      String answer = "Hi "+username+ " What's the subject of the email?";
+      // Scanner scanner2 = new Scanner(System.in);
+
+      
+      // String answer = "Hi "+username+ " What's the subject of the email?";
      
-      System.out.println(answer);
+      // System.out.println(answer);
 
-      subjectmain = scanner2.nextLine();
+      // subjectmain = scanner2.nextLine();
 
       
 
-      System.out.println("What would you like to send?");
+      // System.out.println("What would you like to send?");
 
-      Scanner scanner3 = new Scanner(System.in);
+      // Scanner scanner3 = new Scanner(System.in);
 
-      contentmain = scanner3.nextLine();
+      // contentmain = scanner3.nextLine();
     
 
     
 
       String email_p = "jesseokuji123@gmail.com";
       String content = "Trial of GMAIL API";
-      String reciever = "jesseokuji123@gmail.com";
+      // String reciever = "jesseokuji123@gmail.com";
 
 
       // Create the email content
@@ -134,11 +134,11 @@ public Main () throws Exception {
     Properties props = new Properties();
     Session session = Session.getDefaultInstance(props, null);
     MimeMessage email = new MimeMessage(session);
-    email.setFrom(new InternetAddress(email_p));
+    email.setFrom(new InternetAddress(sender));
     email.addRecipient(javax.mail.Message.RecipientType.TO,
         new InternetAddress(reciever));
-    email.setSubject(subjectmain);
-    email.setText(contentmain);
+    email.setSubject(subject);
+    email.setText(message);
 
     // Encode and wrap the MIME message into a gmail message
     ByteArrayOutputStream buffer = new ByteArrayOutputStream();
@@ -168,7 +168,5 @@ public Main () throws Exception {
 
     }
 
-    public static void main(String[] args) throws Exception {
-        new Main().sendEmail(subjectmain, contentmain);
-    };
+  
 }
